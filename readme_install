@@ -1,0 +1,168 @@
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+NODE_MAJOR=20
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+sudo apt-get update
+sudo apt-get install nodejs -y
+node -v
+npm i aptos
+sudo npm install -g pnpm
+sudo apt install python3-pip
+pip3 install aptos-sdk
+git clone https://github.com/aptos-labs/aptos-core.git
+
+
+curl -fsSL "https://aptos.dev/scripts/install_cli.py" | python3
+
+#NOTE: fullly qualify path for aptos via environemnt varible or in command line!
+
+#/home/ubuntu/.local/bin/aptos
+/home/ubuntu/.local/bin/aptos init
+Configuring for profile default
+Choose network from [devnet, testnet, mainnet, local, custom | defaults to devnet]
+<ret> for devnet
+
+No network given, using devnet...
+Enter your private key as a hex literal (0x...) [Current: None | No input: Generate new key (or keep one if present)]
+
+No key given, generating key...
+Account 0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1 doesn't exist, creating it and funding it with 100000000 Octas
+Account 0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1 funded successfully
+
+---
+Aptos CLI is now set up for account 0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1 as profile default!  Run `aptos --help` for more information about commands
+{
+  "Result": "Success"
+}
+
+
+ /home/ubuntu/.local/bin/aptos account fund-with-faucet --account default
+{
+  "Result": "Added 100000000 Octas to account 0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1"
+}
+ubuntu@ip-172-31-34-79:~$
+
+
+cd aptos-core/aptos-move/move-examples/hello_blockchain
+
+ /home/ubuntu/.local/bin/aptos move compile --named-addresses hello_blockchain=default
+Compiling, may take a little while to download git dependencies...
+INCLUDING DEPENDENCY AptosFramework
+INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY MoveStdlib
+BUILDING Examples
+{
+  "Result": [
+    "e23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1::message"
+  ]
+}
+
+
+ubuntu@ip-172-31-34-79:~/aptos-core/aptos-move/move-examples/hello_blockchain$ /home/ubuntu/.local/bin/aptos move test --named-addresses hello_blockchain=default
+INCLUDING DEPENDENCY AptosFramework
+INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY MoveStdlib
+BUILDING Examples
+Running Move unit tests
+[ PASS    ] 0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1::message_tests::sender_can_set_message
+[ PASS    ] 0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1::message::sender_can_set_message
+Test result: OK. Total tests: 2; passed: 2; failed: 0
+{
+  "Result": "Success"
+}
+
+
+ubuntu@ip-172-31-34-79:~/aptos-core/aptos-move/move-examples/hello_blockchain$ /home/ubuntu/.local/bin/aptos move publish --named-addresses hello_blockchain=default
+Compiling, may take a little while to download git dependencies...
+INCLUDING DEPENDENCY AptosFramework
+INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY MoveStdlib
+BUILDING Examples
+package size 1806 bytes
+Do you want to submit a transaction for a range of [143400 - 215100] Octas at a gas unit price of 100 Octas? [yes/no] >
+yes
+{
+  "Result": {
+    "transaction_hash": "0x983fa4bdf862ac290859501a0488560b2f496cff96a2c7fbd0498d1c7a9f147f",
+    "gas_used": 1434,
+    "gas_unit_price": 100,
+    "sender": "e23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1",
+    "sequence_number": 0,
+    "success": true,
+    "timestamp_us": 1699052941625221,
+    "version": 36099,
+    "vm_status": "Executed successfully"
+  }
+}
+
+
+
+ubuntu@ip-172-31-34-79:~/aptos-core/aptos-move/move-examples/hello_blockchain$ /home/ubuntu/.local/bin/aptos move run \
+  --function-id 'default::message::set_message' \
+  --args 'string:hello, blockchain'
+Do you want to submit a transaction for a range of [50300 - 75400] Octas at a gas unit price of 100 Octas? [yes/no] >
+yes
+{
+  "Result": {
+    "transaction_hash": "0x8e36a23d42ffeb791a02f8ffb538aee07e262d02146f2d27b91284d434faae49",
+    "gas_used": 504,
+    "gas_unit_price": 100,
+    "sender": "e23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1",
+    "sequence_number": 1,
+    "success": true,
+    "timestamp_us": 1699053066448297,
+    "version": 36934,
+    "vm_status": "Executed successfully"
+  }
+}
+
+
+ first time!
+* if you re-run you need to edit your Move.toml and add the address if you have a new one generated
+
+
+
+0xf55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c
+https://fullnode.devnet.aptoslabs.com/v1/accounts/f55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c/resource/0xf55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c::message::MessageHolder
+
+
+
+
+
+# repeat message does not work1!
+https://fullnode.devnet.aptoslabs.com/v1/accounts/f55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c/events/0xf55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c::message::MessageHolder/message_change_events
+
+[]
+
+{"type":"0xf55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c::message::MessageHolder","data":{"message":"hello, blockchain","message_change_events":{"counter":"0","guid":{"id":{"addr":"0xf55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c","creation_num":"4"}}}}}
+
+[{"version":"43278","guid":{"creation_number":"4","account_address":"0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1"},"sequence_number":"0"
+,"type":"0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1::message::MessageChangeEvent","data":{"from_message":"hello, blockchain","to_message":
+"hello, blockchain2"}},{"version":"43584","guid":{"creation_number":"4","account_address":"0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1"},"se
+quence_number":"1","type":"0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1::message::MessageChangeEvent","data":{"from_message":"hello, blockchain
+2","to_message":"hello, blockchain2"}},{"version":"80313","guid":{"creation_number":"4","account_address":"0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a
+6b15a8c1"},"sequence_number":"2","type":"0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1::message::MessageChangeEvent","data":{"from_message":"hell
+o, blockchain2","to_message":"hello, blockchain again"}}]
+
+
+https://explorer.aptoslabs.com/
+
+https://explorer.aptoslabs.com/account/0cd38741e80d794772fc5890e39f2b9d2d3f28246489960b790d7b4d270ab6b5?network=devnet
+
+https://aptos.dev/tutorials/your-first-fungible-asset
+
+https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
+
+https://mokshya.io/
+
+
+
+
+
+
+
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: typing_extensions in /home/ubuntu/.local/lib/python3.10/site-packages (4.8.0)
+ubuntu@ip-172-31-35-62:~/aptos-core/ecosystem/python/sdk$
