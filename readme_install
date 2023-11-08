@@ -131,7 +131,8 @@ https://fullnode.devnet.aptoslabs.com/v1/accounts/f55cd6df0a44ae71196a932b6b1f9d
 
 
 
-# repeat message does not work1!
+# repeat message does not work, until i make subsequent calls to 'set message'1!
+# a first call to 'events' will produce an empty set
 https://fullnode.devnet.aptoslabs.com/v1/accounts/f55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c/events/0xf55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c::message::MessageHolder/message_change_events
 
 []
@@ -151,7 +152,8 @@ https://explorer.aptoslabs.com/
 
 https://explorer.aptoslabs.com/account/0cd38741e80d794772fc5890e39f2b9d2d3f28246489960b790d7b4d270ab6b5?network=devnet
 
-https://aptos.dev/tutorials/your-first-fungible-asset
+
+https://aptos.dev/tutorials/first-move-module
 
 https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
 
