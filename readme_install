@@ -119,6 +119,14 @@ yes
 }
 
 
+
+# ALTERNATIVE MEANS OF READING / VERIFYING YOUR EVENTS.
+https://explorer.aptoslabs.com/txn/0x2c4c1a9f30388f4a63efbead836c02b6f73d547a2313a99c16698a3bcc598706/events?network=devnet
+
+
+
+
+
  first time!
 * if you re-run you need to edit your Move.toml and add the address if you have a new one generated
 
