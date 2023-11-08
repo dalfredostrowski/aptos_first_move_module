@@ -129,7 +129,7 @@ https://fullnode.devnet.aptoslabs.com/v1/accounts/f55cd6df0a44ae71196a932b6b1f9d
 
 NOTE: events are not managed the same way as before.....
 https://aptos.dev/concepts/events/
-
+NOTE: unlike before no messages_changed_events are now being returned upon an invocation of a move module...
 
 # repeat message does not work, until i make subsequent calls to 'set message'1!
 # a first call to 'events' will produce an empty set
