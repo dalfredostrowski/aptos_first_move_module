@@ -127,6 +127,14 @@ yes
 0xf55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c
 https://fullnode.devnet.aptoslabs.com/v1/accounts/f55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c/resource/0xf55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c::message::MessageHolder
 
+{"type":"0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1::message::MessageHolder","data":{"message":"hello, blockchain55555",
+"message_change_events":{"counter":"5","guid":{"id":{"addr":"0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1","creation_num":"4"}}}}}
+
+
+
+
+
+
 NOTE: events are not managed the same way as before.....
 https://aptos.dev/concepts/events/
 NOTE: unlike before no messages_changed_events are now being returned upon an invocation of a move module...
@@ -147,7 +155,7 @@ quence_number":"1","type":"0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b51
 6b15a8c1"},"sequence_number":"2","type":"0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1::message::MessageChangeEvent","data":{"from_message":"hell
 o, blockchain2","to_message":"hello, blockchain again"}}]
 
-
+{"type":"0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1::message::MessageHolder","data":{"message":"hello, blockchain55555","message_change_events":{"counter":"5","guid":{"id":{"addr":"0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1","creation_num":"4"}}}}}
 https://explorer.aptoslabs.com/
 
 https://explorer.aptoslabs.com/account/0cd38741e80d794772fc5890e39f2b9d2d3f28246489960b790d7b4d270ab6b5?network=devnet
