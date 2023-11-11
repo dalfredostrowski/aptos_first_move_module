@@ -123,35 +123,34 @@ yes
 # ALTERNATIVE MEANS OF READING / VERIFYING YOUR EVENTS.
 https://explorer.aptoslabs.com/txn/0x2c4c1a9f30388f4a63efbead836c02b6f73d547a2313a99c16698a3bcc598706/events?network=devnet
 
+#result from browser
+0xeffba02acb338cd995f0e4e766587da0c3d5e9d11750eaff6af32f481cedd9aa::message::MessageChange
+Data: 
+{
+account:"0xeffba02acb338cd995f0e4e766587da0c3d5e9d11750eaff6af32f481cedd9aa"
+from_message:"hello, blockchain22"
+to_message:"hello, blockchain33"
+}
 
 
 
-
- first time!
 * if you re-run you need to edit your Move.toml and add the address if you have a new one generated
 
-
-
 0xf55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c
+
+
+
 https://fullnode.devnet.aptoslabs.com/v1/accounts/f55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c/resource/0xf55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c::message::MessageHolder
 
 {"type":"0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1::message::MessageHolder","data":{"message":"hello, blockchain55555",
 "message_change_events":{"counter":"5","guid":{"id":{"addr":"0xe23f4b065b6b99b6446f6dbc7f7020957fea5df4f9d74dc9b517c18a6b15a8c1","creation_num":"4"}}}}}
 
 
-
-
-
-
-NOTE: events are not managed the same way as before.....
+NOTE: events are not managed the same way as before.....'message_change_events' not showing in displayed JSON
 https://aptos.dev/concepts/events/
 NOTE: unlike before no messages_changed_events are now being returned upon an invocation of a move module...
 
-# repeat message does not work, until i make subsequent calls to 'set message'1!
-# a first call to 'events' will produce an empty set
-https://fullnode.devnet.aptoslabs.com/v1/accounts/f55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c/events/0xf55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c::message::MessageHolder/message_change_events
-
-[]
+# earlier installations from aptos_core did work  - here are the result with the same installation earlier than date: 11/10/2023
 
 {"type":"0xf55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c::message::MessageHolder","data":{"message":"hello, blockchain","message_change_events":{"counter":"0","guid":{"id":{"addr":"0xf55cd6df0a44ae71196a932b6b1f9dea475de17e09d891fac75b22ac80a9318c","creation_num":"4"}}}}}
 
